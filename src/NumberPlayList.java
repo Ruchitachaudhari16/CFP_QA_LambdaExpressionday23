@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class NumberPlayList {
 //UC.1.3 create a number playlist and iterate and print each element
@@ -54,12 +55,17 @@ myNumberList.forEach(new Consumer<Integer>()
     Function<Integer,Double>toDoubleFunction=Integer::doubleValue; //:: lambda with a method refernce
     myNumberList.forEach(n->{
         System.out.println("Mth5: foreach lambda double value::"+toDoubleFunction.apply(n));
-            }
-            );
+            });
     /* Another way to write method in a lambda experssion
    Function<Integer,Double> toDoubleFunction =n->n.dpubleValue; //Remaining code as it is
    */
 
+    //UC1.5:-Iterate through list of number and print only if it is even.
+    Predicate<Integer>isEvenFunction=n->n>0 && n%2==0;
+    myNumberList.forEach(n->
+    {
+        System.out.println("Mth6: foreach value of:"+n+ "Check for even:"+isEvenFunction.test(n));;
+    });
 }
 }
 
